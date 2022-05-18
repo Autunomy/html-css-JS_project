@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div" style="font-size: xxx-large;">00:00:00</div>
+<button onclick="begin()">开始</button>
+<button onclick="theend()">停止</button>
+<button onclick="forzero()">清零</button>
+
+<script>
+    let s = 0;
+    let m = 0;
+    let h = 0;
+    let timer;
+    let elem = document.getElementById("div");
+    function begin(){
+        timer= window.setInterval(function(){
+            s++;
+            if(s === 60){
+                m++;
+                s=0;
+            }
+            if(m === 60){
+                h++;
+                m=0;
+            }
+            let ss,mm,hh;
+            if(s < 10){
+                ss = "0"+s;
+            }else{
+                ss=s+"";
+            }
+
+            if(m<10){
+                mm = "0"+m;
+            }else{
+                mm=m+"";
+            }
+
+            if(h<10){
+                hh = "0"+h;
+            }else{
+                hh=h+"";
+            }
+
+            elem.innerText = hh+':'+mm+':'+ss;
+        },1000);
+    }
+
+    function theend(){
+        window.clearInterval(timer);
+    }
+
+    function forzero(){
+        window.clearInterval(timer);
+        h=0;
+        m=0;
+        s=0;
+        elem.innerText = "00:00:00";
+    }
+
+</script>
+</body>
+</html>

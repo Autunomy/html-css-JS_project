@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.box{
+    width: 1000px;
+    height: 50px;
+    margin-left: 460px;
+}
+.box ul{
+    list-style-type: none;/*去除无序列表的前面的点*/
+    margin-left:80px;
+}
+
+.box ul li{
+    line-height: 50px;
+    float: left;
+    margin-left: 25px;
+}
+
+.box ul li a{
+    display: inline-block;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+
+.box ul li:nth-child(1) a{
+    border-bottom: 2px solid #de4b43;
+}
+
+.box ul li a:hover{
+    color: red;
+    border-bottom: 2px solid #de4b43;
+}
+
+
