@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select id="s1" onchange="change(this)">
+    <option selected="selected">西安市</option>
+    <option>北京市</option>
+    <option>上海市</option>
+</select>
+<select id="s2">
+    <option>西安邮电大学</option>
+    <option>西安交通大学</option>
+    <option>西安电子科技大学</option>
+</select>
+<button onclick="getMessage()">点击获取</button>
+<div id="d1"></div>
+<script>
+    let xian = ["西安邮电大学","西安交通大学","西安电子科技大学"];
+    let beijing = ["北京邮电大学","北京交通大学","北京电子科技大学"];
+    let shanghai = ["上海邮电大学","上海交通大学","上海电子科技大学"];
+    function change(args){
+        let s2 = document.querySelector("#s2");
+        s2.length = 0;
+        console.log(args.value);
+        if(args.value === "西安市"){
+            for(let i=0;i<xian.length;++i){
+                let opt = document.createElement("option");
+                opt.append(document.createTextNode(xian[i]));
+                s2.append(opt);
+            }
+        }else if(args.value === "北京市"){
+            for(let i=0;i<beijing.length;++i){
+                let opt = document.createElement("option");
+                opt.append(document.createTextNode(beijing[i]));
+                s2.append(opt);
+            }
+        }else if(args.value === "上海市"){
+            for(let i=0;i<shanghai.length;++i){
+                let opt = document.createElement("option");
+                opt.append(document.createTextNode(shanghai[i]));
+                s2.append(opt);
+            }
+        }
+    }
+
+    function getMessage(){
+        let s1 = document.querySelector("#s1");
+        let s2 = document.querySelector("#s2");
+        let d1 = document.querySelector("#d1");
+		
+		d1.innerHTML = "";
+		
+        let str = s1.value+s2.value;
+        d1.append(str);
+    }
+</script>
+
+</body>
+</html>
